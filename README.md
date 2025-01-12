@@ -1,4 +1,3 @@
-<!-- ABOUT THE PROJECT -->
 #  Spaceship Swarms
 ![Game Image](GithubImages/GameImage.png)
 
@@ -9,6 +8,7 @@ Features:
 * Control your ship and fly through space!
 * Shoot your laser cannons and collect upgrades!
 * Destroy asteroids to gain score!
+* Hide on planets to avoid the aliens!
 * Avoid invincible aliens that chase you!
 
 ## Dependencies
@@ -56,7 +56,11 @@ Updating the end menu takes 2.8ms.
 Drawing the end menu takes 2.6ms.
 
 ### CPU Usage In Game
+![CPU Image](GithubImages/CPUusage.png)
+![File Reads Image](GithubImages/FileReads.png)
+![Memory Usage Image](GithubImages/MemoryUsage.png)
 
+The spikes in usage in the above images happen when the menus are open, I'm not sure why this is, it may have something to do with me not limiting the frame rate but I'm not entirely sure. No known issues are caused from this though.
 
 ### Optimisation Technique Examples
 * Bullets utilise object pooling.
