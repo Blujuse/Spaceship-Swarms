@@ -1,4 +1,4 @@
-#  Spaceship Swarms
+#  Spaceship Shooters
 ![Game Image](GithubImages/GameImage.png)
 
 Spaceship swarms is a game build in SDL using C++, take piot in a spaceship and destroy asteroids, but there are aliens attacking!
