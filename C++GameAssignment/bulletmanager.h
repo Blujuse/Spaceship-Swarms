@@ -8,6 +8,7 @@
 #include <algorithm>
 
 #include "player.h"
+#include "soundplayer.h"
 
 #define PI 3.14159265
 
@@ -26,7 +27,7 @@ class BulletManager
 	friend class EnemiesManager;
 
 public:
-	BulletManager(SDL_Renderer* renderer, Player* player) : renderer(renderer), player(player), bulletTexture(nullptr) {}
+	BulletManager(SDL_Renderer* renderer, Player* player) : renderer(renderer), player(player), bulletTexture(nullptr), soundPlayer(nullptr) {}
 	
 	void BulletInit();
 	
@@ -38,16 +39,22 @@ public:
 
 	void BulletClean();
 
+	void DecreaseBulletTimer(int decrease);
+
 private:
 	SDL_Renderer* renderer;
 	SDL_Texture* bulletTexture;
 
-	static const int MAX_BULLETS = 5;
+	static const int MAX_BULLETS = 20;
 	std::vector<Bullet> bullets;
 
 	Player* player;
 
-	const int SHOOT_TIMER_MS = 300;
+	int SHOOT_TIMER_MS = 300;
 	unsigned int lastShot = 0;
 	const int BULLET_VELOCITY = 15;
+
+	// Sound
+
+	SoundPlayer* soundPlayer;
 };

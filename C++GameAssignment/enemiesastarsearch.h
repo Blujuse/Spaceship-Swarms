@@ -4,6 +4,7 @@
 #include <vector>
 #include <array>
 #include <stack>
+
 #include "tilemap.h"
 
 struct Node
@@ -16,8 +17,6 @@ struct Node
 };
 
 bool IsValid(Tilemap &map, int x, int y);
-
-int IsValidIndex(int Offset, int Index, int Size);
 
 bool IsDestination(int x, int y, Node destination);
 

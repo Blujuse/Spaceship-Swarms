@@ -3,11 +3,13 @@
 // Initialising the bullet with a specific texture
 void BulletManager::BulletInit()
 {
-	SDL_Surface* surface = IMG_Load("./Assets/Player/Placeholder.png");
+	SDL_Surface* surface = IMG_Load("./Assets/Player/Bullet.png");
 	this->bulletTexture = SDL_CreateTextureFromSurface(this->renderer, surface);
 	SDL_FreeSurface(surface);
 
 	bullets.resize(MAX_BULLETS); // Preallocate bullets
+
+	soundPlayer = new SoundPlayer();
 }
 
 //  Do this every frame for the bullet, moves them along
@@ -62,6 +64,8 @@ void BulletManager::BulletInput(const Uint8* keystate)
 				}
 			}
 
+			soundPlayer->PlaySound(Sounds::SHOOT);
+
 			/*
 			// Start moving the bullet, contains the spawn location and to fire at
 			bullets.push_back(Bullet{ player->getPosX(), player->getPosY(), player->getAngle() - 90.0f, 0.0});
@@ -92,4 +96,21 @@ void BulletManager::BulletDraw()
 void BulletManager::BulletClean()
 {
 	SDL_DestroyTexture(this->bulletTexture);
+
+	if (soundPlayer != nullptr)
+	{
+		delete soundPlayer;
+
+		soundPlayer = nullptr;
+	}
+}
+
+void BulletManager::DecreaseBulletTimer(int decrease)
+{
+	if (SHOOT_TIMER_MS != 0)
+	{
+		SHOOT_TIMER_MS -= decrease;
+	}
+
+	soundPlayer->PlaySound(Sounds::SHOOT);
 }

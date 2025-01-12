@@ -12,20 +12,21 @@ public: // Inside this are functions that can be accessed when using #include "p
      Parameters:
      Image location, SDL_Renderer
     */
-    Player(const std::string& imagePath, SDL_Renderer* renderer); // This can be filled out with the chosen image  and renderer
+    Player(const std::string& imgPath, SDL_Renderer* renderer);
+    // This can be filled out with the chosen image  and renderer
     ~Player(); // The destructor for the player, frees up memory, is called automatically when the program is closed
-
-    /* Render player to screen function, player must already be created
-     Parameters:
-     SDL_Renderer
-    */
-    void render(SDL_Renderer* renderer); // Renders the player to the screen
 
     /* Handle inputs by reading keystate
      Parameters:
      SDL_GetKeyboardState(NULL)
     */
     void handleInput(const Uint8* keystate); // Handles the input of a player by getting the keystate
+
+    /* Render player to screen function, player must already be created
+     Parameters:
+     SDL_Renderer
+    */
+    void render(SDL_Renderer* renderer); // Renders the player to the screen
 
     /* Sets the player position
      Parameters:
@@ -43,7 +44,6 @@ public: // Inside this are functions that can be accessed when using #include "p
 private: // Inside this are variables which are hidden from scripts using #include "player.h", as they don't need to be changed
     SDL_Surface* playerImg;
     SDL_Texture* playerTex;
-    SDL_Rect srcRect;
     SDL_Rect destRect;
     double posX;
     double posY;
@@ -52,6 +52,16 @@ private: // Inside this are variables which are hidden from scripts using #inclu
     double speed;
 
     bool isPlayerMoving;
+
+    // Animation Variables
+
+    int spriteW = 32; // Width of current frame
+    int spriteH = 32; // Height of current frame
+    int currentFrame = 0;
+    int totalFrames = 4;
+
+    unsigned int lastAniUpdate = 0;
+    unsigned int aniSpeed = 100; // Milliseconds
 };
 
 #endif // !PLAYER_H

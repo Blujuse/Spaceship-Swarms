@@ -12,8 +12,6 @@ Player::Player(const std::string& imgPath, SDL_Renderer* renderer)
 	playerImg = IMG_Load(imgPath.c_str());
 
 	playerTex = SDL_CreateTextureFromSurface(renderer, playerImg);
-
-	srcRect = { 0, 0, playerImg->w, playerImg->h };
 }
 
 Player::~Player() // This works as the destructor for the player to get rid of any memory it's taking up
@@ -22,92 +20,102 @@ Player::~Player() // This works as the destructor for the player to get rid of a
     SDL_FreeSurface(playerImg);
 }
 
-// The below function copies the player to the renderer, rendering is carried out in main.cpp
-void Player::render(SDL_Renderer* renderer)
-{
-    // destRect is used to set the player                                        Increasing the size of the player
-    destRect = { (int)posX - (playerImg->w / 2), (int)posY - (playerImg->h / 2), (playerImg->w * 2), (playerImg->h * 2) };
-    SDL_RenderCopyEx(renderer, playerTex, &srcRect, &destRect, rotate, NULL, SDL_FLIP_HORIZONTAL);
-}
-
 // This handles input, it passes through the current keystate and moves it accordingly
 void Player::handleInput(const Uint8* keystate)
 {
-    // Convert rotation angle from degrees to radians
-    // Radians are and angle whose correspoing arc in a circle is equal to the radius
+    // Get rotation angle and change from degrees to radians
+    // So can be used for sin and cos
     angleRadians = rotate * (M_PI / 180.0f);
 
-    // Determine movement speed
+    // Movement speed
     speed = 5;
 
-    // Move in the direction the player is facing, using sin and cos
-    // Find out the angle which the player should be moving in
-    if (keystate[SDL_SCANCODE_W]) 
+    // Store position changes
+    double currX = 0;
+    double currY = 0;
+
+    // isPlayerMoving is used to trigger the astar to start moving towards the player
+    // Forward
+    if (keystate[SDL_SCANCODE_W])
     {
-        // Sets the player moving bool to true for the enemies to use
         isPlayerMoving = true;
 
-        // Numbers are based on window and pixel sizes
+        currX += speed * sin(angleRadians);
+        currY -= speed * cos(angleRadians);
 
-        // Check if the player is going outside the boundaries on the right
-        if (posX + playerImg->w >= 800)
+        // Update animation frame
+        if (SDL_GetTicks() - lastAniUpdate > aniSpeed)
         {
-            // Takes into consideration pixel size
-            posX = 800 - 33;
+            lastAniUpdate = SDL_GetTicks();
+            currentFrame = (currentFrame + 1) % totalFrames;
         }
-        else if(posX <= 0) // Check if the player is going outside the boundaries on the left
-        {
-            // Takes into consideration pixel size
-            posX = 0 + 1;
-        }
-        else
-        {
-            // Moving code
-            posX += speed * sin(angleRadians);
-        }
+    }
+    // Backward
+    else if (keystate[SDL_SCANCODE_S])
+    {
+        isPlayerMoving = true;
 
-        // Check if the player is going outside the boundaries on the bottom
-        if (posY + playerImg->h >= 640)
+        currX -= speed * sin(angleRadians);
+        currY += speed * cos(angleRadians);
+
+        // Update animation frame
+        if (SDL_GetTicks() - lastAniUpdate > aniSpeed)
         {
-            // Takes into consideration pixel size
-            posY = 640 - 33;
-        }
-        else if (posY <= 0) // Check if the player is going outside the boundaries on the top
-        {
-            // Takes into consideration pixel size
-            posY = 0 + 1;
-        }
-        else
-        {
-            // Moving code
-            posY -= speed * cos(angleRadians);
+            lastAniUpdate = SDL_GetTicks();
+            currentFrame = (currentFrame + 1) % totalFrames;
         }
     }
     else
     {
-        // Sets the player moving bool to false for the enemies to use
         isPlayerMoving = false;
     }
 
-    // Rotate left or right
+    // Left rotate
     if (keystate[SDL_SCANCODE_A])
     {
         rotate -= speed;
     }
+    // Right rotate
     if (keystate[SDL_SCANCODE_D])
     {
         rotate += speed;
     }
 
     // Wrap rotation to stay within 0-359 degrees, otherwise rotate number will get to large
-    if (rotate < 0) 
+    if (rotate < 0)
     {
         rotate += 360;
     }
-    if (rotate >= 360) 
+    if (rotate >= 360)
     {
         rotate -= 360;
     }
+
+    // Update position while using boundaries
+    // "Magic Numbers" are taken from size of screen and player size
+    if ((posX + currX - (32) > 0) && (posX + currX + (32 + 32) < 800))
+    {
+        posX += currX;
+    }
+    if ((posY + currY - (32) > 0) && (posY + currY + (32 + 32) < 640))
+    {
+        posY += currY;
+    }
+}
+
+// The below function copies the player to the renderer, rendering is carried out in main.cpp
+void Player::render(SDL_Renderer* renderer)
+{
+    // Calculate the row and column for the current frame
+    int row = currentFrame / 2; // 2 frames per row
+    int col = currentFrame % 2; // Column index within the row
+
+    // Source rectangle for the current frame
+    SDL_Rect src = { col * spriteW, row * spriteH, spriteW, spriteH };
+
+    // destRect is used to set the player       Increasing the size of the player
+    destRect = { (int)posX - (32 / 2), (int)posY - (32 / 2), (32 * 2), (32 * 2) };
+    SDL_RenderCopyEx(renderer, playerTex, &src, &destRect, rotate, NULL, SDL_FLIP_HORIZONTAL);
 }
 
 // This is used to set the players starting position where it's told to

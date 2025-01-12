@@ -4,11 +4,15 @@
 #include <vector>
 
 #include "bulletmanager.h"
+#include "scoremanager.h"
+#include "soundplayer.h"
+#include "particles.h"
 
 // Group enemy variables together
 struct Enemies 
 {
 	int x, y;
+	int velocityX, velocityY;
 };
 
 class EnemiesManager
@@ -16,12 +20,14 @@ class EnemiesManager
 
 public:
 
-	EnemiesManager(SDL_Renderer* renderer, BulletManager* bulletManager) : renderer(renderer), bulletManager(bulletManager), enemiesTexture(nullptr) {}
+	EnemiesManager(SDL_Renderer* renderer, BulletManager* bulletManager) : renderer(renderer), bulletManager(bulletManager), enemiesTexture(nullptr), particles(nullptr), soundPlayer(nullptr) {}
 	virtual ~EnemiesManager() {}
+
+	void Spawner();
 
 	void EnemiesInit();
 
-	void EnemiesUpdate();
+	void EnemiesUpdate(ScoreManager* scoreManager);
 
 	void EnemiesDraw();
 
@@ -34,6 +40,10 @@ private:
 	SDL_Texture* enemiesTexture;
 
 	BulletManager* bulletManager;
+
+	SoundPlayer* soundPlayer;
+
+	Particles* particles;
 
 	const int MAX_ENEMIES = 16;
 };

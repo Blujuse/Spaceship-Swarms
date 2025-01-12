@@ -8,15 +8,39 @@
 // Basically finds out if it is a wall or outside the array bounds
 bool IsValid(const Tilemap& theMap, int x, int y)
 {
-	if (x < 0 || x >= 25) {
+	if (x < 0 || x >= 25) 
+	{
 		return false;
 	}
 
-	if (y < 0 || y >= 21) {
+	if (y < 0 || y >= 21) 
+	{
 		return false;
 	}
 
-	if (theMap.MAP_DATA[y][x] == 1) {
+	// Below are parts of the tilemap the enemy cannot move onto towards!
+	if (theMap.MAP_DATA[y][x] == 3)
+	{
+		return false;
+	}
+
+	if (theMap.MAP_DATA[y][x] == 6) 
+	{
+		return false;
+	}
+
+	if (theMap.MAP_DATA[y][x] == 7)
+	{
+		return false;
+	}
+
+	if (theMap.MAP_DATA[y][x] == 10)
+	{
+		return false;
+	}
+
+	if (theMap.MAP_DATA[y][x] == 11)
+	{
 		return false;
 	}
 
@@ -26,7 +50,8 @@ bool IsValid(const Tilemap& theMap, int x, int y)
 // Indicated if the position corresponds to the destination
 bool IsDestination(int x, int y, Node destination)
 {
-	if (x == destination.x && y == destination.y) {
+	if (x == destination.x && y == destination.y) 
+	{
 		return true;
 	}
 

@@ -1,22 +1,26 @@
-﻿  bulletmanager.cpp
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(22,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(26,29): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(27,29): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(49,33): warning C4018: '>': signed/unsigned mismatch
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(55,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(56,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(57,38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(84,14): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\bulletmanager.cpp(85,14): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-  enemiesastarsearch.cpp
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\enemiesastarsearch.cpp(44,15): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+﻿  endmenu.cpp
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4305: 'initializing': truncation from '__int64' to 'const char'
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4309: 'initializing': truncation of constant value
   enemiesmanager.cpp
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(43,29): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(43,29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(43,34): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(43,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4305: 'initializing': truncation from '__int64' to 'const char'
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4309: 'initializing': truncation of constant value
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(51,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(90,29): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(90,29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(90,34): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\enemiesmanager.cpp(90,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   gameloop.cpp
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4305: 'initializing': truncation from '__int64' to 'const char'
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4309: 'initializing': truncation of constant value
+  gamestatehandler.cpp
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4305: 'initializing': truncation from '__int64' to 'const char'
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4309: 'initializing': truncation of constant value
   main.cpp
-  tilemap.cpp
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4305: 'initializing': truncation from '__int64' to 'const char'
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4309: 'initializing': truncation of constant value
+  scoremanager.cpp
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4305: 'initializing': truncation from '__int64' to 'const char'
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.h(33,19): warning C4309: 'initializing': truncation of constant value
+E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\C++GameAssignment\scoremanager.cpp(17,15): warning C4553: '==': result of expression not used; did you intend '='?
   Generating Code...
-  C++GameAssignment.vcxproj -> E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\milestones-Blujuse\C++GameAssignment\x64\Debug\C++GameAssignment.exe
+  C++GameAssignment.vcxproj -> E:\University Work\Year 2\CMP5327 C++ Programming for Games A S1\William_Harper_23153681\code\C++GameAssignment\x64\Debug\C++GameAssignment.exe

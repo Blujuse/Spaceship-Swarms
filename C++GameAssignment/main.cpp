@@ -3,15 +3,18 @@
 
 #define SDL_MAIN_HANDLED
 #include <iostream>
+#include "gamestatehandler.h"
 #include "gameloop.h"
 
 int main()
 {
     // Decide the window width and height
-    GameLoop game(800, 640);
+    //GameLoop game(800, 640);
+
+    GameStateHandler gameHandler;
 
     // Calls the initialize functions & checks if it's has been completed successfully
-    if (!game.initialize())
+    if (!gameHandler.SDLInit())
     {
         // If not display this message
         std::cerr << "Failed to initialize the game." << std::endl;
@@ -19,7 +22,9 @@ int main()
     }
 
     // Run the game
-    game.update();
+    //game.update();
+
+    gameHandler.CurrentGameState();
 
     return 0;
 }

@@ -2,26 +2,30 @@
 
 #include <SDL.h>
 #include <string>
-#include "init.h"
 #include <vector>
+#include <fstream>
+
+#include "init.h"
 
 class Tilemap
 {
 public:
 
-	Tilemap(SDL_Renderer* renderer) : renderer(renderer) {}
+	Tilemap(SDL_Renderer* renderer) : renderer(renderer), selectT1{}, selectT2{}, selectT3{}, selectT4{}, selectT5{},
+		selectT6{}, selectT7{}, selectT8{}, selectT9{}, selectT10{}, selectT11{}, selectT12{},
+		tilemapTex(nullptr) {};
 
 	void TilemapInit();
+
+	void LoadTilemapFromFile();
+
+	void saveTilemapToFile();
 
 	void TilemapDraw();
 
 	void TilemapClean();
 
-	int IsValidIndex(int Offset, int Index, int Size);
-
-public:
-
-	// Used to draw the map
+	// Used to hold the map data loaded from txt file
 	std::vector<std::vector<int>> MAP_DATA = {
 		{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
 		{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 },
@@ -45,24 +49,6 @@ public:
 		{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 },
 	};
 
-
-	//
-	// OLD TILEMAP CODE
-	//
-
-	/* Constructor for tilemap
-	 Parameters:
-	 Image location, SDL_Renderer, Window width, Window height, Size of tile pixels
-	*/
-	//Tilemap(const std::string& tilePath, SDL_Renderer* renderer, int windowW, int windowH, int tilePixelSize);
-	//~Tilemap();
-
-	/* Renderer for tilemap
-	 Parameters:
-	 SDL_Renderer, Window width, Window height, Size of tile pixels
-	*/
-	//void RenderTilemap(SDL_Renderer* renderer, int windowW, int windowH, int tilePixelSize);
-
 private:
 
 	SDL_Renderer* renderer;
@@ -81,23 +67,4 @@ private:
 	SDL_Rect selectT10;
 	SDL_Rect selectT11;
 	SDL_Rect selectT12;
-
-
-	// Tilemap
-	
-
-	//
-	// OLD TILEMAP CODE
-	//
-
-	//SDL_Surface* tilemapImg;
-	
-	// Creating arrays for tile map with a max of 0920 x 0080
-	// Added ** to allow for 2D array and dynamic memory allocation, two types of memory static and dynamic
-	// Below is dynamic
-	//SDL_Rect** tile;
-	//int** tilemapSize;
-	
-	// This would be static
-	//int tilemapW, tilemapH;
 };
