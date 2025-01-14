@@ -4,7 +4,7 @@
 Spaceship shooters is a game built in SDL using C++, take piot in a spaceship and destroy asteroids, but there are aliens attacking!
 How long can you survive be the alien assault?
 
-Features:
+## Features
 * Control your ship and fly through space!
 * Shoot your laser cannons and collect upgrades!
 * Destroy asteroids to gain score!
