@@ -11,6 +11,11 @@ Features:
 * Hide on planets to avoid the aliens!
 * Avoid invincible aliens that chase you!
 
+## Controls
+* ​WASD - Movement & Rotation
+* Space - Shoot
+* Mouse - Select Menu Options
+
 ## Dependencies
 * SDL library
 * SDL Image
