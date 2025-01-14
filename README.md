@@ -1,7 +1,7 @@
 #  Spaceship Shooters
 ![Game Image](GithubImages/GameImage.png)
 
-Spaceship shooters is a game built in SDL using C++, take piot in a spaceship and destroy asteroids, but there are aliens attacking!
+Spaceship shooters is a game built in SDL using C++, take pilot in a spaceship and destroy asteroids, but there are aliens attacking!
 How long can you survive be the alien assault?
 
 ## Features
